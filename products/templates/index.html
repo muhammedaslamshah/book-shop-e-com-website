@@ -1,7 +1,25 @@
-{% block title %}
-<h1>Products</h1>
-{% endblock title %}
+{% extends "base.html" %} 
 
-{% for product in products %}
-<li>{{ product.name }}</li>
-{% endfor %}
+{% block title %}
+{% endblock title %} 
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    {% for product in products %}
+    <div class="col-md-3">
+      <div class="card">
+        <img src="{{product.image}}" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">{{product.name}}</h5>
+          <p class="card-text">${{product.price}}</p>
+          <a href="#" class="btn btn-warning">Add +</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock content %}
